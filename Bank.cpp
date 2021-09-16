@@ -24,7 +24,11 @@ public:
     }
     void getDetails()
     {
-        cout << "Date:" << date << "\tPrinicipal Amount:" << p << "\t:Intrest Rate" << r << "\tTime:" << t << "\tIntrest:" << intrest << endl;
+        cout << "Date         : " << date << endl;
+        cout << "Amount       : " << p << endl;
+        cout << "Intrest Rate : " << r << endl;
+        cout << "Time         : " << t << endl;
+        cout << "Intrest      : " << intrest << endl;
     }
     ~Loan()
     {
@@ -43,7 +47,7 @@ public:
         if (amt <= curr_bal)
         {
             curr_bal -= amt;
-            if (last_5_transactions.size() <= 5)
+            if (last_5_transactions.size() < 5)
                 last_5_transactions.push_back({date, {false, amt}});
             else
             {
@@ -68,7 +72,7 @@ public:
         if (amt + curr_bal <= limit)
         {
             curr_bal += amt;
-            if (last_5_transactions.size() <= 5)
+            if (last_5_transactions.size() < 5)
                 last_5_transactions.push_back({date, {true, amt}});
             else
             {
@@ -84,8 +88,8 @@ public:
     {
         for (auto ele : last_5_transactions)
         {
-            string type = ele.second.first ? "Diposit" : "Withdrawl";
-            cout << ele.first << "\t" << type << "\tRs. " << ele.second.second << endl;
+            string type = ele.second.first ? "Deposit" : "Withdrawl";
+            cout << ele.first << "\t" << type << "\tRs." << ele.second.second << endl;
         }
     }
     void balance()
@@ -111,10 +115,10 @@ public:
     }
     void getDetailsPerson()
     {
-        cout << "Name   :" << name << endl;
-        cout << "Sex    :" << sex << endl;
-        cout << "Address:" << address << endl;
-        cout << "dob    :" << dob << endl;
+        cout << "Name    : " << name << endl;
+        cout << "Sex     : " << sex << endl;
+        cout << "Address : " << address << endl;
+        cout << "dob     : " << dob << endl;
     }
     Person(string name, string address, char sex)
     {
@@ -166,14 +170,14 @@ public:
     void data()
     {
         cout << "Details of Your Account" << endl;
-        cout << "Account Number :" << acc_no << endl;
-        cout << "Name           :" << name << endl;
-        cout << "Sex M/F/O      :" << sex << endl;
-        cout << "Account opening:" << date << endl;
-        cout << "Type S/C       :" << type << endl;
-        cout << "DoB dd/mm/yyyy :" << dob << endl;
-        cout << "Contact number :" << contact_no << endl;
-        cout << "Address        :" << address << endl;
+        cout << "Account Number  : " << acc_no << endl;
+        cout << "Name            : " << name << endl;
+        cout << "Sex M/F/O       : " << sex << endl;
+        cout << "Account opening : " << date << endl;
+        cout << "Type S/C        : " << type << endl;
+        cout << "DoB dd/mm/yyyy  : " << dob << endl;
+        cout << "Contact number  : " << contact_no << endl;
+        cout << "Address         : " << address << endl;
     }
     void getLoan(int p, float r, int t, string date)
     {
@@ -182,8 +186,13 @@ public:
     }
     void getLoanDeatils()
     {
+        int i=0;
         for (auto ele : loan)
+        {
+            cout<<++i<<" : "<<endl;
             ele.getDetails();
+            cout << endl;
+        }
     }
     void withdrawlAmt(float amt, string date)
     {
@@ -345,6 +354,7 @@ int main()
     int choice;
     while (true)
     {
+        cout<<endl;
         cout << "1.New Costumer\n2.Existing Costumer" << endl;
         cout << "0.Exit" << endl;
         cin >> choice;
@@ -396,6 +406,7 @@ int main()
             cout << endl;
             while (true)
             {
+                cout<<endl;
                 cout << "Enter Your Choice for the Operation!!" << endl;
                 cout << "1.Loan" << endl;
                 cout << "2.Balance" << endl;
@@ -412,6 +423,7 @@ int main()
                 {
                     while (true)
                     {
+                        cout<<endl;
                         cout << "Enter Your Choice for the Operation!!" << endl;
                         cout << "1.Get Loan" << endl;
                         cout << "2.Get Loan Details" << endl;
@@ -451,6 +463,7 @@ int main()
                 {
                     while (true)
                     {
+                        cout<<endl;
                         cout << "Enter Your Choice for the Operation!!" << endl;
                         cout << "1.Get Balance and limit" << endl;
                         cout << "2.Last 5 Transactions" << endl;
@@ -503,6 +516,7 @@ int main()
                 {
                     while (true)
                     {
+                        cout<<endl;
                         cout << "Enter Your Choice for the Operation!!" << endl;
                         cout << "1.Add Nominee" << endl;
                         cout << "2.Get Nominiee Details" << endl;
