@@ -88,7 +88,7 @@ public:
     {
         for (auto ele : last_5_transactions)
         {
-            string type = ele.second.first ? "Deposit" : "Withdrawl";
+            string type = ele.second.first ? "Deposit\t" : "Withdrawl";
             cout << ele.first << "\t" << type << "\tRs." << ele.second.second << endl;
         }
     }
@@ -186,10 +186,10 @@ public:
     }
     void getLoanDeatils()
     {
-        int i=0;
+        int i = 0;
         for (auto ele : loan)
         {
-            cout<<++i<<" : "<<endl;
+            cout << ++i << " : " << endl;
             ele.getDetails();
             cout << endl;
         }
@@ -354,7 +354,7 @@ int main()
     int choice;
     while (true)
     {
-        cout<<endl;
+        cout << endl;
         cout << "1.New Costumer\n2.Existing Costumer" << endl;
         cout << "0.Exit" << endl;
         cin >> choice;
@@ -406,7 +406,7 @@ int main()
             cout << endl;
             while (true)
             {
-                cout<<endl;
+                cout << endl;
                 cout << "Enter Your Choice for the Operation!!" << endl;
                 cout << "1.Loan" << endl;
                 cout << "2.Balance" << endl;
@@ -423,7 +423,7 @@ int main()
                 {
                     while (true)
                     {
-                        cout<<endl;
+                        cout << endl;
                         cout << "Enter Your Choice for the Operation!!" << endl;
                         cout << "1.Get Loan" << endl;
                         cout << "2.Get Loan Details" << endl;
@@ -463,7 +463,7 @@ int main()
                 {
                     while (true)
                     {
-                        cout<<endl;
+                        cout << endl;
                         cout << "Enter Your Choice for the Operation!!" << endl;
                         cout << "1.Get Balance and limit" << endl;
                         cout << "2.Last 5 Transactions" << endl;
@@ -516,7 +516,7 @@ int main()
                 {
                     while (true)
                     {
-                        cout<<endl;
+                        cout << endl;
                         cout << "Enter Your Choice for the Operation!!" << endl;
                         cout << "1.Add Nominee" << endl;
                         cout << "2.Get Nominiee Details" << endl;
