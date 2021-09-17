@@ -24,6 +24,7 @@ public class Account extends Person{
         this.contact_no = contact_no;
         this.pass = pass;
         this.acc_no = acc_no;
+        this.bal=new Balance();
     }
     String get_Acc_no()
     {

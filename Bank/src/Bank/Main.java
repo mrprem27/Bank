@@ -18,6 +18,7 @@ public class Main {
             System.out.println("1.New Costumer\n2.Existing Costumer");
             System.out.println("0.Exit");
             choice = sc.nextInt();
+            sc.nextLine();
             if (choice == 0)
                 break;
             switch (choice) {
@@ -27,13 +28,12 @@ public class Main {
                     System.out.println("Enter details to create new Account");
                     System.out.println();
                     System.out.println("Enter your name");
-                    sc.next();
                     name = sc.nextLine();
                     System.out.println("Enter sex M/F/O");
                     sex = sc.next().charAt(0);
                     System.out.println("Enter date dd/mm/yyyy");
                     date = sc.next();
-                    sc.next();
+                    sc.nextLine();
                     System.out.println("Enter address");
                     address = sc.nextLine();
                     System.out.println("Enter DoB dd/mm/yyyy");
@@ -48,7 +48,6 @@ public class Main {
                 }
                 case 2 -> {
                     String acc_no, pass, name;
-                    sc.next();
                     System.out.println("Enter details to continue");
                     System.out.println();
                     System.out.println("Enter your name");
@@ -59,6 +58,8 @@ public class Main {
                     pass = sc.next();
                     System.out.println(name + " " + acc_no + " " + pass);
                     Account account = bank.get_services(name, acc_no, pass);
+                    if(account==null)
+                        break;
                     System.out.println();
                     while (true) {
                         System.out.println();
@@ -84,7 +85,7 @@ public class Main {
                                     if (choice == 0)
                                         break;
                                     switch (choice) {
-                                        case 1: {
+                                        case 1 -> {
                                             int p, t;
                                             float r;
                                             String date;
@@ -97,13 +98,9 @@ public class Main {
                                             System.out.println("Enter Date");
                                             date = sc.next();
                                             account.getLoan(p, r, t, date);
-                                            break;
                                         }
-                                        case 2:
-                                            account.getLoanDetails();
-                                        default:
-                                            System.out.println("Enter valid option!!");
-                                            break;
+                                        case 2 -> account.getLoanDetails();
+                                        default -> System.out.println("Enter valid option!!");
                                     }
                                 }
                             }
@@ -152,20 +149,20 @@ public class Main {
                                     System.out.println("2.Get Nominee Details");
                                     System.out.println("0.Exit");
                                     choice = sc.nextInt();
+                                    sc.nextLine();
                                     if (choice == 0)
                                         break;
                                     switch (choice) {
                                         case 1 -> {
                                             String address, dob;
                                             char sex;
-                                            sc.next();
                                             System.out.println("Enter details to add Nominee to your Account");
                                             System.out.println();
                                             System.out.println("Enter your name");
-                                            sc.nextLine();
+                                            name=sc.nextLine();
                                             System.out.println("Enter sex M/F/O");
                                             sex = sc.next().charAt(0);
-                                            sc.next();
+                                            sc.nextLine();
                                             System.out.println("Enter address");
                                             address = sc.nextLine();
                                             System.out.println("Enter DoB dd/mm/yyyy");
@@ -179,52 +176,56 @@ public class Main {
                             }
                             case 4 -> account.data();
                             case 5 -> {
-                                System.out.println("Enter Your Choice for the Upgrading!!");
-                                System.out.println("1.Name");
-                                System.out.println("2.Address");
-                                System.out.println("3.DoB dd/mm/yyyy");
-                                System.out.println("4.Contact number");
-                                System.out.println("5.Password");
-                                System.out.println("0.Exit");
-                                choice = sc.nextInt();
-                                switch (choice) {
-                                    case 1: {
-                                        sc.next();
-                                        System.out.println("Enter your Name");
-                                        name = sc.nextLine();
-                                        account.updateName(name);
+                                while (true)
+                                {
+                                    System.out.println("Enter Your Choice for the Upgrading!!");
+                                    System.out.println("1.Name");
+                                    System.out.println("2.DoB dd/mm/yyyy");
+                                    System.out.println("3.Address");
+                                    System.out.println("4.Contact number");
+                                    System.out.println("5.Password");
+                                    System.out.println("0.Exit");
+                                    choice = sc.nextInt();
+                                    sc.nextLine();
+                                    if(choice==0)
                                         break;
+                                    switch (choice) {
+                                        case 1: {
+                                            System.out.println("Enter your Name");
+                                            name = sc.nextLine();
+                                            account.updateName(name);
+                                            break;
+                                        }
+                                        case 2: {
+                                            String dob;
+                                            System.out.println("Enter DoB dd/mm/yyyy");
+                                            dob = sc.next();
+                                            account.updateDOB(dob);
+                                            break;
+                                        }
+                                        case 3: {
+                                            String address;
+                                            System.out.println("Enter address");
+                                            address = sc.nextLine();
+                                            account.updateAddress(address);
+                                            break;
+                                        }
+                                        case 4: {
+                                            String contact_no;
+                                            System.out.println("Enter contact number");
+                                            contact_no = sc.next();
+                                            account.updateCN(contact_no);
+                                            break;
+                                        }
+                                        case 5: {
+                                            System.out.println("Enter password");
+                                            pass = sc.next();
+                                            account.updatePass(pass);
+                                            break;
+                                        }
+                                        default:
+                                            break;
                                     }
-                                    case 2: {
-                                        String dob;
-                                        System.out.println("Enter DoB dd/mm/yyyy");
-                                        dob = sc.next();
-                                        account.updateDOB(dob);
-                                        break;
-                                    }
-                                    case 3: {
-                                        String address;
-                                        System.out.println("Enter address");
-                                        sc.next();
-                                        address = sc.nextLine();
-                                        account.updateAddress(address);
-                                        break;
-                                    }
-                                    case 4: {
-                                        String contact_no;
-                                        System.out.println("Enter contact number");
-                                        contact_no = sc.next();
-                                        account.updateCN(contact_no);
-                                        break;
-                                    }
-                                    case 5: {
-                                        System.out.println("Enter password");
-                                        pass = sc.next();
-                                        account.updatePass(pass);
-                                        break;
-                                    }
-                                    default:
-                                        break;
                                 }
                             }
                             default -> System.out.println("Enter valid option!!");

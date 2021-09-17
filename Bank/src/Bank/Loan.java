@@ -19,10 +19,10 @@ public class Loan {
     }
     void getDetails()
     {
-        System.out.println("Date         : "+date);
-        System.out.println("Amount       : "+p);
+        System.out.println("Date          : "+date);
+        System.out.println("Amount        : "+p);
         System.out.println("Interest Rate : "+r);
-        System.out.println("Time         : "+t);
-        System.out.println("Interest      : "+ interest);
+        System.out.println("Time          : "+t);
+        System.out.println("Interest      : "+interest);
     }
 }

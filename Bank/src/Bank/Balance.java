@@ -43,7 +43,7 @@ public class Balance {
             curr_bal += amt;
             if (last_5_transactions.size() >= 5)
                 last_5_transactions.remove(0);
-            last_5_transactions.add(new balList(date,false,amt));
+            last_5_transactions.add(new balList(date,true,amt));
             System.out.println("Current balance is:Rs." + curr_bal);
         }
         else

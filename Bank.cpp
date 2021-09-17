@@ -452,6 +452,7 @@ int main()
                         }
                         case 2:
                             account.getLoanDeatils();
+                            break;
                         default:
                             cout << "Enter valid option!!" << endl;
                             break;
