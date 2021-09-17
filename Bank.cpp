@@ -274,7 +274,7 @@ private:
 protected:
     long account_count(char type)
     {
-        if (type != 'S' || type != 'C')
+        if (type != 'S' && type != 'C')
         {
             cout << "Account type error";
             return 0;
